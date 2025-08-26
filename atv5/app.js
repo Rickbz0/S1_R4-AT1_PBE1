@@ -3,8 +3,8 @@ const app = express();
 const PORT = 8081;
 
 app.get("/saudacao/:nome", (req, res) => {
-  const nome = req.params.nome;
-  const hora = parseInt(req.query.hora);
+  const nome = req.params;
+  const hora = parseInt(req.query);
 
   if (isNaN(hora) || hora < 0 || hora > 23) {
             return res.status(400).send(`Campos obrigatorios não preenchidos!`);
@@ -26,5 +26,6 @@ app.get("/saudacao/:nome", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
 
 
